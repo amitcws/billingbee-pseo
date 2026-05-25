@@ -44,23 +44,26 @@ export default async function AlternativePage({
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-500 mb-8">
-          <Link href="/" className="hover:text-gray-700">Home</Link>
+        <nav className="text-sm mb-8" style={{ color: "#64748B" }}>
+          <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/alternatives" className="hover:text-gray-700">Alternatives</Link>
+          <span>Alternatives</span>
           <span className="mx-2">/</span>
-          <span className="text-gray-900">BillingBee vs {competitor.name}</span>
+          <span style={{ color: "#0F172A" }}>BillingBee vs {competitor.name}</span>
         </nav>
 
         {/* Hero */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-amber-100 text-amber-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+          <div
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}
+          >
             {new Date().getFullYear()} Comparison
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">
+          <h1 className="text-4xl sm:text-5xl font-black mb-4" style={{ color: "#0F172A" }}>
             BillingBee vs {competitor.name}
           </h1>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto" style={{ color: "#64748B" }}>
             Which invoicing software is actually better for {competitor.targetAudience}?
             We break down pricing, features, and the honest trade-offs.
           </p>
@@ -68,41 +71,41 @@ export default async function AlternativePage({
 
         {/* Quick verdict */}
         <div className="grid sm:grid-cols-2 gap-6 mb-16">
-          <div className="border-2 border-indigo-500 rounded-2xl p-6 bg-indigo-50">
+          <div className="rounded-2xl p-6" style={{ background: "rgba(16,185,129,0.06)", border: "2px solid #10B981" }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-black">B</div>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black" style={{ background: "#10B981" }}>B</div>
               <div>
-                <p className="font-bold text-gray-900">BillingBee</p>
-                <p className="text-sm text-gray-500">Best for focused invoicing</p>
+                <p className="font-bold" style={{ color: "#0F172A" }}>BillingBee</p>
+                <p className="text-sm" style={{ color: "#64748B" }}>Best for focused invoicing</p>
               </div>
-              <span className="ml-auto bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-full">Our pick</span>
+              <span className="ml-auto text-white text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: "#10B981" }}>Our pick</span>
             </div>
             <ul className="space-y-2">
               {competitor.billingbeeAdvantages.map((adv) => (
-                <li key={adv} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-indigo-600 font-bold mt-0.5">✓</span>
+                <li key={adv} className="flex items-start gap-2 text-sm" style={{ color: "#334155" }}>
+                  <span className="font-bold mt-0.5" style={{ color: "#10B981" }}>✓</span>
                   {adv}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border border-gray-200 rounded-2xl p-6 bg-gray-50">
+          <div className="rounded-2xl p-6" style={{ border: "1px solid #E2E8F0", background: "#F8FAFC" }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gray-300 rounded-xl flex items-center justify-center text-gray-700 font-black">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center font-black" style={{ background: "#E2E8F0", color: "#475569" }}>
                 {competitor.name[0]}
               </div>
               <div>
-                <p className="font-bold text-gray-900">{competitor.name}</p>
-                <p className="text-sm text-gray-500">{competitor.tagline}</p>
+                <p className="font-bold" style={{ color: "#0F172A" }}>{competitor.name}</p>
+                <p className="text-sm" style={{ color: "#64748B" }}>{competitor.tagline}</p>
               </div>
-              <span className="ml-auto bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">
+              <span className="ml-auto text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#E2E8F0", color: "#475569" }}>
                 ★ {competitor.rating}
               </span>
             </div>
             <ul className="space-y-2">
               {competitor.weaknesses.map((w) => (
-                <li key={w} className="flex items-start gap-2 text-sm text-gray-600">
+                <li key={w} className="flex items-start gap-2 text-sm" style={{ color: "#475569" }}>
                   <span className="text-red-400 font-bold mt-0.5">✗</span>
                   {w}
                 </li>
@@ -113,37 +116,29 @@ export default async function AlternativePage({
 
         {/* Pricing comparison */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Pricing Comparison</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>Pricing Comparison</h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left p-4 border border-gray-200 font-semibold">Plan</th>
-                  <th className="text-left p-4 border border-gray-200 font-semibold text-indigo-600">BillingBee</th>
-                  <th className="text-left p-4 border border-gray-200 font-semibold">{competitor.name}</th>
+                <tr style={{ background: "#F8FAFC" }}>
+                  <th className="text-left p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#0F172A" }}>Plan</th>
+                  <th className="text-left p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#10B981" }}>BillingBee</th>
+                  <th className="text-left p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#0F172A" }}>{competitor.name}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="p-4 border border-gray-200 font-medium">Free tier</td>
-                  <td className="p-4 border border-gray-200 text-indigo-700 font-medium">✓ Free forever plan</td>
-                  <td className="p-4 border border-gray-200 text-gray-500">Varies</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="p-4 border border-gray-200 font-medium">Starting price</td>
-                  <td className="p-4 border border-gray-200 text-indigo-700 font-medium">$9/month</td>
-                  <td className="p-4 border border-gray-200">{competitor.pricing}</td>
-                </tr>
-                <tr>
-                  <td className="p-4 border border-gray-200 font-medium">Clients limit</td>
-                  <td className="p-4 border border-gray-200 text-indigo-700 font-medium">Unlimited on all plans</td>
-                  <td className="p-4 border border-gray-200 text-gray-500">Limited on lower tiers</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="p-4 border border-gray-200 font-medium">Recurring invoices</td>
-                  <td className="p-4 border border-gray-200 text-indigo-700 font-medium">✓ Included</td>
-                  <td className="p-4 border border-gray-200 text-gray-500">Paid plans only</td>
-                </tr>
+                {[
+                  ["Free tier", "✓ Free forever plan", "Varies"],
+                  ["Starting price", "$9/month", competitor.pricing],
+                  ["Clients limit", "Unlimited on all plans", "Limited on lower tiers"],
+                  ["Recurring invoices", "✓ Included", "Paid plans only"],
+                ].map(([plan, bb, comp], i) => (
+                  <tr key={plan} style={{ background: i % 2 === 1 ? "#F8FAFC" : "#fff" }}>
+                    <td className="p-4 font-medium" style={{ border: "1px solid #E2E8F0", color: "#334155" }}>{plan}</td>
+                    <td className="p-4 font-medium" style={{ border: "1px solid #E2E8F0", color: "#10B981" }}>{bb}</td>
+                    <td className="p-4" style={{ border: "1px solid #E2E8F0", color: "#64748B" }}>{comp}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -151,14 +146,14 @@ export default async function AlternativePage({
 
         {/* Feature comparison */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>Feature Comparison</h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left p-4 border border-gray-200 font-semibold">Feature</th>
-                  <th className="text-center p-4 border border-gray-200 font-semibold text-indigo-600">BillingBee</th>
-                  <th className="text-center p-4 border border-gray-200 font-semibold">{competitor.name}</th>
+                <tr style={{ background: "#F8FAFC" }}>
+                  <th className="text-left p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#0F172A" }}>Feature</th>
+                  <th className="text-center p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#10B981" }}>BillingBee</th>
+                  <th className="text-center p-4 font-semibold" style={{ border: "1px solid #E2E8F0", color: "#0F172A" }}>{competitor.name}</th>
                 </tr>
               </thead>
               <tbody>
@@ -173,24 +168,16 @@ export default async function AlternativePage({
                   ["Invoice templates (30+)", true, "partial"],
                   ["Mobile app", true, true],
                   ["Accountant access", true, true],
-                ].map(([feature, billingbee, comp]) => (
-                  <tr key={String(feature)} className="even:bg-gray-50">
-                    <td className="p-4 border border-gray-200 font-medium">{feature}</td>
-                    <td className="p-4 border border-gray-200 text-center">
-                      {billingbee === true ? (
-                        <span className="text-green-600 text-lg">✓</span>
-                      ) : (
-                        <span className="text-gray-300 text-lg">—</span>
-                      )}
+                ].map(([feature, billingbee, comp], i) => (
+                  <tr key={String(feature)} style={{ background: i % 2 === 1 ? "#F8FAFC" : "#fff" }}>
+                    <td className="p-4 font-medium" style={{ border: "1px solid #E2E8F0", color: "#334155" }}>{feature}</td>
+                    <td className="p-4 text-center" style={{ border: "1px solid #E2E8F0" }}>
+                      {billingbee === true ? <span className="text-lg" style={{ color: "#10B981" }}>✓</span> : <span className="text-gray-300 text-lg">—</span>}
                     </td>
-                    <td className="p-4 border border-gray-200 text-center">
-                      {comp === true ? (
-                        <span className="text-green-600 text-lg">✓</span>
-                      ) : comp === "partial" ? (
-                        <span className="text-amber-500 text-sm">Partial</span>
-                      ) : (
-                        <span className="text-red-400 text-lg">✗</span>
-                      )}
+                    <td className="p-4 text-center" style={{ border: "1px solid #E2E8F0" }}>
+                      {comp === true ? <span className="text-lg" style={{ color: "#10B981" }}>✓</span>
+                        : comp === "partial" ? <span className="text-sm text-amber-500">Partial</span>
+                        : <span className="text-red-400 text-lg">✗</span>}
                     </td>
                   </tr>
                 ))}
@@ -201,11 +188,11 @@ export default async function AlternativePage({
 
         {/* Who should choose what */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Who Should Use Each?</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>Who Should Use Each?</h2>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-indigo-50 rounded-2xl p-6 border border-indigo-100">
-              <h3 className="font-bold text-indigo-900 mb-3">Choose BillingBee if you…</h3>
-              <ul className="space-y-2 text-sm text-indigo-800">
+            <div className="rounded-2xl p-6" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.20)" }}>
+              <h3 className="font-bold mb-3" style={{ color: "#065F46" }}>Choose BillingBee if you…</h3>
+              <ul className="space-y-2 text-sm" style={{ color: "#064E3B" }}>
                 <li>✓ Want focused invoicing without accounting bloat</li>
                 <li>✓ Need unlimited clients from day one</li>
                 <li>✓ Want to automate your entire billing workflow</li>
@@ -213,9 +200,9 @@ export default async function AlternativePage({
                 <li>✓ Want fair, predictable pricing</li>
               </ul>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-              <h3 className="font-bold text-gray-900 mb-3">Choose {competitor.name} if you…</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+            <div className="rounded-2xl p-6" style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}>
+              <h3 className="font-bold mb-3" style={{ color: "#0F172A" }}>Choose {competitor.name} if you…</h3>
+              <ul className="space-y-2 text-sm" style={{ color: "#475569" }}>
                 <li>→ Already use {competitor.name} and don&apos;t want to switch</li>
                 <li>→ Need full-featured accounting, not just invoicing</li>
                 <li>→ Have an established workflow built around {competitor.name}</li>
@@ -233,16 +220,17 @@ export default async function AlternativePage({
 
         {/* Other comparisons */}
         <section className="mt-16">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">More Comparisons</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>More Comparisons</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {others.map((c) => (
               <Link
                 key={c.slug}
                 href={`/alternatives/${c.slug}`}
-                className="flex items-center justify-between border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                className="flex items-center justify-between rounded-xl px-4 py-3 transition-all hover:border-emerald-300"
+                style={{ border: "1px solid #E2E8F0" }}
               >
-                <span className="font-medium text-gray-900">BillingBee vs {c.name}</span>
-                <span className="text-indigo-600 text-sm">Compare →</span>
+                <span className="font-medium" style={{ color: "#0F172A" }}>BillingBee vs {c.name}</span>
+                <span className="text-sm font-medium" style={{ color: "#10B981" }}>Compare →</span>
               </Link>
             ))}
           </div>

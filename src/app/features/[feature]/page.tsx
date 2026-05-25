@@ -47,26 +47,30 @@ export default async function FeaturePage({
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-500 mb-8">
-          <Link href="/" className="hover:text-gray-700">Home</Link>
+        <nav className="text-sm mb-8" style={{ color: "#64748B" }}>
+          <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <span className="hover:text-gray-700 cursor-pointer">Features</span>
+          <span>Features</span>
           <span className="mx-2">/</span>
-          <span className="text-gray-900">{feat.name}</span>
+          <span style={{ color: "#0F172A" }}>{feat.name}</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-16">
-          <div className="inline-block bg-violet-100 text-violet-700 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+          <div
+            className="inline-flex items-center text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}
+          >
             BillingBee Feature
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black mb-4 leading-tight" style={{ color: "#0F172A" }}>
             {feat.headline}
           </h1>
-          <p className="text-xl text-gray-500 max-w-2xl mb-8">{feat.description}</p>
+          <p className="text-xl max-w-2xl mb-8" style={{ color: "#64748B" }}>{feat.description}</p>
           <Link
-            href="https://billingbee.co/signup"
-            className="inline-block bg-indigo-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-indigo-700 transition-colors"
+            href="https://billingbee.co/register-now"
+            className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+            style={{ background: "#10B981", boxShadow: "0 4px 16px rgba(16,185,129,0.30)" }}
           >
             Try it free →
           </Link>
@@ -74,12 +78,12 @@ export default async function FeaturePage({
 
         {/* Benefits */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Why it matters</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>Why it matters</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {feat.benefits.map((benefit) => (
-              <div key={benefit} className="flex items-start gap-3 bg-indigo-50 border border-indigo-100 rounded-xl p-4">
-                <span className="text-indigo-600 font-bold text-xl mt-0.5">✓</span>
-                <p className="text-gray-700 font-medium">{benefit}</p>
+              <div key={benefit} className="flex items-start gap-3 rounded-xl p-4" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.18)" }}>
+                <span className="font-bold text-xl mt-0.5" style={{ color: "#10B981" }}>✓</span>
+                <p className="font-medium" style={{ color: "#334155" }}>{benefit}</p>
               </div>
             ))}
           </div>
@@ -87,14 +91,17 @@ export default async function FeaturePage({
 
         {/* How it works */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">How it works</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>How it works</h2>
           <div className="space-y-4">
             {feat.howItWorks.map((step, i) => (
-              <div key={step} className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                <div className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center shrink-0 text-sm">
+              <div key={step} className="flex items-start gap-4 bg-white rounded-xl p-5" style={{ border: "1px solid #E2E8F0", boxShadow: "0 1px 3px rgba(0,0,0,.06)" }}>
+                <div
+                  className="w-8 h-8 rounded-full text-white font-bold flex items-center justify-center shrink-0 text-sm"
+                  style={{ background: "#10B981" }}
+                >
                   {i + 1}
                 </div>
-                <p className="text-gray-700 pt-0.5">{step}</p>
+                <p className="pt-0.5" style={{ color: "#334155" }}>{step}</p>
               </div>
             ))}
           </div>
@@ -102,12 +109,13 @@ export default async function FeaturePage({
 
         {/* Use cases */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Common use cases</h2>
+          <h2 className="text-2xl font-bold mb-4" style={{ color: "#0F172A" }}>Common use cases</h2>
           <div className="flex flex-wrap gap-3">
             {feat.useCases.map((uc) => (
               <span
                 key={uc}
-                className="bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2 rounded-full border border-gray-200"
+                className="text-sm font-medium px-4 py-2 rounded-full"
+                style={{ background: "#F1F5F9", color: "#334155", border: "1px solid #E2E8F0" }}
               >
                 {uc}
               </span>
@@ -123,16 +131,17 @@ export default async function FeaturePage({
         {/* Related features */}
         {related.length > 0 && (
           <section className="mt-16">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Works great with</h2>
+            <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>Works great with</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {related.map((f) => (
                 <Link
                   key={f.slug}
                   href={`/features/${f.slug}`}
-                  className="border border-gray-200 rounded-xl p-4 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                  className="rounded-xl p-4 transition-all hover:border-emerald-300"
+                  style={{ border: "1px solid #E2E8F0" }}
                 >
-                  <p className="font-semibold text-gray-900 text-sm mb-1">{f.name}</p>
-                  <p className="text-xs text-gray-500 line-clamp-2">{f.description}</p>
+                  <p className="font-semibold text-sm mb-1" style={{ color: "#0F172A" }}>{f.name}</p>
+                  <p className="text-xs line-clamp-2" style={{ color: "#64748B" }}>{f.description}</p>
                 </Link>
               ))}
             </div>
@@ -141,15 +150,16 @@ export default async function FeaturePage({
 
         {/* Other features */}
         <section className="mt-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">More features</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>More features</h2>
           <div className="grid sm:grid-cols-3 gap-3">
             {others.map((f) => (
               <Link
                 key={f.slug}
                 href={`/features/${f.slug}`}
-                className="border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                className="rounded-xl px-4 py-3 transition-all hover:border-emerald-300"
+                style={{ border: "1px solid #E2E8F0" }}
               >
-                <p className="font-medium text-gray-900 text-sm">{f.name}</p>
+                <p className="font-medium text-sm" style={{ color: "#0F172A" }}>{f.name}</p>
               </Link>
             ))}
           </div>

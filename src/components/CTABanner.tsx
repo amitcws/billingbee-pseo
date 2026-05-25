@@ -12,16 +12,29 @@ export default function CTABanner({
   ctaLabel = "Start free — no credit card needed",
 }: CTABannerProps) {
   return (
-    <section className="bg-indigo-600 rounded-2xl px-8 py-12 text-center text-white my-16">
-      <h2 className="text-3xl font-bold mb-3">{headline}</h2>
-      <p className="text-indigo-100 text-lg mb-8 max-w-xl mx-auto">{subtext}</p>
+    <section
+      className="rounded-2xl px-8 py-14 text-center text-white my-16"
+      style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 100%)" }}
+    >
+      <div
+        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
+        style={{ background: "rgba(16,185,129,0.15)", color: "#10B981", border: "1px solid rgba(16,185,129,0.25)" }}
+      >
+        Get started free
+      </div>
+      <h2 className="text-3xl font-extrabold mb-3" style={{ color: "#fff", lineHeight: 1.2 }}>{headline}</h2>
+      <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: "#94A3B8" }}>{subtext}</p>
       <Link
-        href="https://billingbee.co/signup"
-        className="inline-block bg-white text-indigo-700 font-bold px-8 py-4 rounded-xl text-lg hover:bg-indigo-50 transition-colors shadow-lg"
+        href="https://billingbee.co/register-now"
+        className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full text-base transition-all hover:-translate-y-0.5"
+        style={{
+          background: "#10B981",
+          boxShadow: "0 8px 28px rgba(16,185,129,0.35)",
+        }}
       >
         {ctaLabel}
       </Link>
-      <p className="text-indigo-200 text-sm mt-4">Free plan available · No credit card required · Cancel anytime</p>
+      <p className="text-sm mt-4" style={{ color: "#475569" }}>Free plan available · No credit card required · Cancel anytime</p>
     </section>
   );
 }

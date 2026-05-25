@@ -44,35 +44,37 @@ export default async function LocationPage({
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-500 mb-8">
-          <Link href="/" className="hover:text-gray-700">Home</Link>
+        <nav className="text-sm mb-8" style={{ color: "#64748B" }}>
+          <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <span className="text-gray-900">Invoicing software for {loc.name}</span>
+          <span style={{ color: "#0F172A" }}>Invoicing software for {loc.name}</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-3xl">🌍</span>
-            <span className="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">
+            <span
+              className="text-sm font-semibold px-3 py-1 rounded-full"
+              style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}
+            >
               {loc.country}
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black mb-4 leading-tight" style={{ color: "#0F172A" }}>
             Invoicing Software for {loc.name} Businesses
           </h1>
-          <p className="text-xl text-gray-500 max-w-2xl mb-8">
+          <p className="text-xl max-w-2xl mb-8" style={{ color: "#64748B" }}>
             BillingBee is built for {loc.name}-based freelancers and small businesses.
             Full {loc.taxName} support, {loc.currency} invoicing, and local payment methods — out of the box.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="https://billingbee.co/signup"
-              className="bg-indigo-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-indigo-700 transition-colors"
-            >
-              Start free in {loc.name}
-            </Link>
-          </div>
+          <Link
+            href="https://billingbee.co/register-now"
+            className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+            style={{ background: "#10B981", boxShadow: "0 4px 16px rgba(16,185,129,0.30)" }}
+          >
+            Start free in {loc.name}
+          </Link>
         </div>
 
         {/* At-a-glance */}
@@ -83,26 +85,26 @@ export default async function LocationPage({
             { label: "Tax Rate", value: loc.taxRate },
             { label: "Businesses", value: loc.businessCount },
           ].map((stat) => (
-            <div key={stat.label} className="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center">
-              <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">{stat.label}</p>
-              <p className="text-lg font-black text-gray-900">{stat.value}</p>
+            <div key={stat.label} className="rounded-2xl p-4 text-center" style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}>
+              <p className="text-xs uppercase tracking-widest font-bold mb-1" style={{ color: "#64748B" }}>{stat.label}</p>
+              <p className="text-lg font-black" style={{ color: "#0F172A" }}>{stat.value}</p>
             </div>
           ))}
         </section>
 
         {/* Local compliance */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold mb-2" style={{ color: "#0F172A" }}>
             {loc.taxName} & local compliance
           </h2>
-          <p className="text-gray-500 mb-6">
+          <p className="mb-6" style={{ color: "#64748B" }}>
             BillingBee handles all the local requirements so your invoices are always compliant in {loc.name}.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {loc.localCompliance.map((item) => (
-              <div key={item} className="flex items-start gap-3 bg-indigo-50 border border-indigo-100 rounded-xl p-4">
-                <span className="text-indigo-600 font-bold text-lg mt-0.5">✓</span>
-                <p className="text-sm text-gray-700 font-medium">{item}</p>
+              <div key={item} className="flex items-start gap-3 rounded-xl p-4" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.18)" }}>
+                <span className="font-bold text-lg mt-0.5" style={{ color: "#10B981" }}>✓</span>
+                <p className="text-sm font-medium" style={{ color: "#334155" }}>{item}</p>
               </div>
             ))}
           </div>
@@ -110,17 +112,18 @@ export default async function LocationPage({
 
         {/* Payment methods */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold mb-4" style={{ color: "#0F172A" }}>
             Accepted payment methods in {loc.name}
           </h2>
           <div className="flex flex-wrap gap-3">
             {loc.paymentMethods.map((method) => (
               <div
                 key={method}
-                className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 shadow-sm"
+                className="flex items-center gap-2 bg-white rounded-xl px-4 py-2"
+                style={{ border: "1px solid #E2E8F0", boxShadow: "0 1px 3px rgba(0,0,0,.05)" }}
               >
-                <span className="text-green-500">✓</span>
-                <span className="text-sm font-medium text-gray-700">{method}</span>
+                <span style={{ color: "#10B981" }}>✓</span>
+                <span className="text-sm font-medium" style={{ color: "#334155" }}>{method}</span>
               </div>
             ))}
           </div>
@@ -128,7 +131,7 @@ export default async function LocationPage({
 
         {/* Features table */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>
             Everything you need to invoice in {loc.name}
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -144,9 +147,9 @@ export default async function LocationPage({
               "Recurring invoices",
               "PDF download for record-keeping",
             ].map((feature) => (
-              <div key={feature} className="flex items-center gap-3 border border-gray-100 rounded-xl px-4 py-3 bg-gray-50">
-                <span className="text-indigo-600">✓</span>
-                <span className="text-sm text-gray-700">{feature}</span>
+              <div key={feature} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}>
+                <span style={{ color: "#10B981" }}>✓</span>
+                <span className="text-sm" style={{ color: "#334155" }}>{feature}</span>
               </div>
             ))}
           </div>
@@ -160,18 +163,19 @@ export default async function LocationPage({
 
         {/* Other locations */}
         <section className="mt-16">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Invoicing software for other regions</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>Invoicing software for other regions</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {others.map((l) => (
               <Link
                 key={l.slug}
                 href={`/${l.slug}/invoicing-software`}
-                className="flex items-center justify-between border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                className="flex items-center justify-between rounded-xl px-4 py-3 transition-all hover:border-emerald-300"
+                style={{ border: "1px solid #E2E8F0" }}
               >
-                <span className="font-medium text-gray-900 text-sm">
+                <span className="font-medium text-sm" style={{ color: "#0F172A" }}>
                   Invoicing software for {l.name}
                 </span>
-                <span className="text-indigo-600 text-sm">→</span>
+                <span className="text-sm font-medium" style={{ color: "#10B981" }}>→</span>
               </Link>
             ))}
           </div>

@@ -20,88 +20,101 @@ export default function HomePage() {
       <NavBar />
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-b from-indigo-50 to-white px-4 sm:px-6 py-20 text-center">
+        <section className="px-4 sm:px-6 py-20 text-center" style={{ background: "linear-gradient(180deg, #f0fdf4 0%, #fff 100%)" }}>
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block bg-indigo-100 text-indigo-700 text-sm font-semibold px-3 py-1 rounded-full mb-6">
+            <div
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
+              style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}
+            >
               50,000+ businesses trust BillingBee
             </div>
-            <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl font-black mb-6 leading-tight" style={{ color: "#0F172A" }}>
               Invoice faster.<br />
-              <span className="text-indigo-600">Get paid sooner.</span>
+              <span style={{ background: "linear-gradient(120deg,#10B981,#34D399 55%,#6EE7B7)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                Get paid sooner.
+              </span>
             </h1>
-            <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl mb-10 max-w-2xl mx-auto" style={{ color: "#64748B" }}>
               Professional invoicing software for freelancers and small businesses.
               Send invoices, automate reminders, and accept online payments — all in one place.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="https://billingbee.co/signup"
-                className="bg-indigo-600 text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-indigo-700 transition-colors shadow-lg"
+                href="https://billingbee.co/register-now"
+                className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full text-base transition-all hover:-translate-y-0.5"
+                style={{ background: "#10B981", boxShadow: "0 8px 28px rgba(16,185,129,0.35)" }}
               >
                 Start for free
               </Link>
               <Link
                 href="/invoice-templates/simple-invoice"
-                className="border-2 border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-xl text-lg hover:border-gray-300 transition-colors"
+                className="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-full text-base transition-all border hover:border-emerald-300"
+                style={{ borderColor: "#E2E8F0", color: "#334155" }}
               >
                 Browse templates
               </Link>
             </div>
-            <p className="text-gray-400 text-sm mt-4">Free plan available · No credit card needed · Cancel anytime</p>
+            <p className="text-sm mt-4" style={{ color: "#94A3B8" }}>Free plan available · No credit card needed · Cancel anytime</p>
           </div>
         </section>
 
         {/* Invoice Templates */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-black text-gray-900">Free Invoice Templates</h2>
-              <p className="text-gray-500 mt-1">Download in PDF, Word, or Google Docs — or use online with BillingBee.</p>
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3" style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}>
+              Free download
             </div>
+            <h2 className="text-3xl font-extrabold" style={{ color: "#0F172A" }}>Free Invoice Templates</h2>
+            <p className="mt-1" style={{ color: "#64748B" }}>Download in PDF, Word, or Google Docs — or use online with BillingBee.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {invoiceTemplates.slice(0, 6).map((t) => (
               <Link
                 key={t.slug}
                 href={`/invoice-templates/${t.slug}`}
-                className="group border border-gray-200 rounded-2xl p-5 hover:border-indigo-300 hover:shadow-md transition-all"
+                className="group border rounded-2xl p-5 transition-all hover:-translate-y-0.5 hover:border-emerald-400"
+                style={{ borderColor: "#E2E8F0", boxShadow: "0 1px 3px rgba(0,0,0,.06)" }}
               >
                 <div
-                  className="w-10 h-10 rounded-xl mb-3 flex items-center justify-center text-white font-black"
+                  className="w-10 h-10 rounded-xl mb-3 flex items-center justify-center text-white text-lg"
                   style={{ backgroundColor: t.previewColor }}
                 >
                   📄
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1 group-hover:text-indigo-600 transition-colors">{t.name}</h3>
-                <p className="text-sm text-gray-500 line-clamp-2">{t.description}</p>
-                <p className="text-xs text-emerald-600 font-medium mt-3">{t.downloadCount} downloads</p>
+                <h3 className="font-bold mb-1 group-hover:text-emerald-600 transition-colors" style={{ color: "#0F172A" }}>{t.name}</h3>
+                <p className="text-sm line-clamp-2" style={{ color: "#64748B" }}>{t.description}</p>
+                <p className="text-xs font-medium mt-3" style={{ color: "#10B981" }}>{t.downloadCount} downloads</p>
               </Link>
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link href="/invoice-templates/freelance-invoice" className="text-indigo-600 font-semibold hover:underline">
+            <Link href="/invoice-templates/freelance-invoice" className="font-semibold hover:underline" style={{ color: "#10B981" }}>
               View all {invoiceTemplates.length} templates →
             </Link>
           </div>
         </section>
 
         {/* Features */}
-        <section className="bg-gray-50 py-16">
+        <section className="py-16" style={{ background: "#F8FAFC" }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-black text-gray-900">Features built for getting paid</h2>
-              <p className="text-gray-500 mt-2">Everything you need, nothing you don&apos;t.</p>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3" style={{ background: "rgba(16,185,129,0.10)", color: "#10B981", border: "1px solid rgba(16,185,129,0.20)" }}>
+                Product
+              </div>
+              <h2 className="text-3xl font-extrabold" style={{ color: "#0F172A" }}>Features built for getting paid</h2>
+              <p className="mt-2" style={{ color: "#64748B" }}>Everything you need, nothing you don&apos;t.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {features.slice(0, 6).map((f) => (
                 <Link
                   key={f.slug}
                   href={`/features/${f.slug}`}
-                  className="group bg-white border border-gray-200 rounded-2xl p-5 hover:border-indigo-300 hover:shadow-md transition-all"
+                  className="group bg-white border rounded-2xl p-5 transition-all hover:-translate-y-0.5"
+                  style={{ borderColor: "#E2E8F0", boxShadow: "0 1px 3px rgba(0,0,0,.06)" }}
                 >
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">{f.name}</h3>
-                  <p className="text-sm text-gray-500 line-clamp-2">{f.description}</p>
-                  <p className="text-indigo-600 text-sm font-medium mt-3">Learn more →</p>
+                  <h3 className="font-bold mb-2 group-hover:text-emerald-600 transition-colors" style={{ color: "#0F172A" }}>{f.name}</h3>
+                  <p className="text-sm line-clamp-2" style={{ color: "#64748B" }}>{f.description}</p>
+                  <p className="text-sm font-medium mt-3" style={{ color: "#10B981" }}>Learn more →</p>
                 </Link>
               ))}
             </div>
@@ -111,40 +124,42 @@ export default function HomePage() {
         {/* By profession */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <div className="mb-8">
-            <h2 className="text-3xl font-black text-gray-900">Invoicing by Profession</h2>
-            <p className="text-gray-500 mt-1">Tailored for how you actually work.</p>
+            <h2 className="text-3xl font-extrabold" style={{ color: "#0F172A" }}>Invoicing by Profession</h2>
+            <p className="mt-1" style={{ color: "#64748B" }}>Tailored for how you actually work.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {useCases.map((uc) => (
               <Link
                 key={uc.slug}
                 href={`/for/${uc.slug}`}
-                className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                className="flex items-center gap-3 border rounded-xl px-4 py-3 transition-all hover:border-emerald-300 group"
+                style={{ borderColor: "#E2E8F0" }}
               >
                 <span className="text-2xl">{uc.emoji}</span>
-                <span className="font-medium text-gray-900 text-sm">{uc.profession}</span>
-                <span className="ml-auto text-indigo-600 text-sm">→</span>
+                <span className="font-medium text-sm" style={{ color: "#0F172A" }}>{uc.profession}</span>
+                <span className="ml-auto text-sm font-medium" style={{ color: "#10B981" }}>→</span>
               </Link>
             ))}
           </div>
         </section>
 
         {/* Alternatives */}
-        <section className="bg-gray-50 py-16">
+        <section className="py-16" style={{ background: "#F8FAFC" }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="mb-8">
-              <h2 className="text-3xl font-black text-gray-900">BillingBee vs the competition</h2>
-              <p className="text-gray-500 mt-1">Honest comparisons so you can make the right choice.</p>
+              <h2 className="text-3xl font-extrabold" style={{ color: "#0F172A" }}>BillingBee vs the competition</h2>
+              <p className="mt-1" style={{ color: "#64748B" }}>Honest comparisons so you can make the right choice.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {competitors.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/alternatives/${c.slug}`}
-                  className="bg-white border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:shadow-sm transition-all"
+                  className="bg-white border rounded-xl px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-emerald-300"
+                  style={{ borderColor: "#E2E8F0", boxShadow: "0 1px 3px rgba(0,0,0,.05)" }}
                 >
-                  <p className="font-semibold text-gray-900 text-sm mb-1">BillingBee vs {c.name}</p>
-                  <p className="text-xs text-gray-500 line-clamp-1">{c.tagline}</p>
+                  <p className="font-semibold text-sm mb-1" style={{ color: "#0F172A" }}>BillingBee vs {c.name}</p>
+                  <p className="text-xs line-clamp-1" style={{ color: "#64748B" }}>{c.tagline}</p>
                 </Link>
               ))}
             </div>
@@ -154,21 +169,22 @@ export default function HomePage() {
         {/* Locations */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <div className="mb-8">
-            <h2 className="text-3xl font-black text-gray-900">Invoicing Software by Country</h2>
-            <p className="text-gray-500 mt-1">Local tax compliance, currencies, and payment methods — everywhere.</p>
+            <h2 className="text-3xl font-extrabold" style={{ color: "#0F172A" }}>Invoicing Software by Country</h2>
+            <p className="mt-1" style={{ color: "#64748B" }}>Local tax compliance, currencies, and payment methods — everywhere.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {locations.map((l) => (
               <Link
                 key={l.slug}
                 href={`/${l.slug}/invoicing-software`}
-                className="flex items-center justify-between border border-gray-200 rounded-xl px-4 py-3 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
+                className="flex items-center justify-between border rounded-xl px-4 py-3 transition-all hover:border-emerald-300"
+                style={{ borderColor: "#E2E8F0" }}
               >
                 <div>
-                  <p className="font-medium text-gray-900 text-sm">{l.name}</p>
-                  <p className="text-xs text-gray-500">{l.currencySymbol} {l.currency} · {l.taxName}</p>
+                  <p className="font-medium text-sm" style={{ color: "#0F172A" }}>{l.name}</p>
+                  <p className="text-xs" style={{ color: "#64748B" }}>{l.currencySymbol} {l.currency} · {l.taxName}</p>
                 </div>
-                <span className="text-indigo-600 text-sm">→</span>
+                <span className="text-sm font-medium" style={{ color: "#10B981" }}>→</span>
               </Link>
             ))}
           </div>

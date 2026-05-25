@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
+/* ── BillingBee Design Tokens ─────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bb-green:        #10B981;
+  --bb-green-h:      #059669;
+  --bb-green-light:  rgba(16, 185, 129, 0.10);
+  --bb-green-glow:   rgba(16, 185, 129, 0.30);
+
+  --bb-dark:         #0F172A;
+  --bb-dark-2:       #111827;
+  --bb-dark-card:    #1E293B;
+  --bb-dark-border:  rgba(255, 255, 255, 0.08);
+
+  --bb-s50:  #F8FAFC;
+  --bb-s100: #F1F5F9;
+  --bb-s200: #E2E8F0;
+  --bb-s300: #CBD5E1;
+  --bb-s400: #94A3B8;
+  --bb-s500: #64748B;
+  --bb-s600: #475569;
+  --bb-s700: #334155;
+  --bb-s900: #0F172A;
+
+  --r:      0.75rem;
+  --r-pill: 999px;
+  --ff:     'Inter', sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: #ffffff;
+  --color-foreground: var(--bb-s700);
+  --font-sans: var(--ff);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--ff);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--bb-s700);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--ff);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--bb-s900);
+}
+
+/* Pill buttons override for BillingBee style */
+.bb-btn {
+  border-radius: var(--r-pill) !important;
 }
