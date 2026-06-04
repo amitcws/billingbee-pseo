@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill 68429)",
+      "WebFetch(domain:www.billingbee.co)",
+      "Bash(curl -s \"https://www.billingbee.co/\")",
+      "Bash(grep -oE '\\(#[0-9a-fA-F]{3,6}|background[-a-z]*:[^;]+|color:[^;]+|font-family:[^;]+|border-radius:[^;]+\\)')",
+      "Bash(curl -s \"https://www.billingbee.co/frontend/assets/css/style.css\")",
+      "Bash(git -C /Users/amitshukla/pseo status)",
+      "Bash(git -C /Users/amitshukla/pseo diff --stat)",
+      "Bash(git -C /Users/amitshukla/pseo add src/app/globals.css src/app/layout.tsx src/app/page.tsx src/app/\\\\[location\\\\]/invoicing-software/page.tsx src/app/alternatives/\\\\[slug\\\\]/page.tsx src/app/features/\\\\[feature\\\\]/page.tsx src/app/for/\\\\[usecase\\\\]/page.tsx src/app/invoice-templates/\\\\[template\\\\]/page.tsx src/components/CTABanner.tsx src/components/Footer.tsx src/components/NavBar.tsx)",
+      "Bash(git -C /Users/amitshukla/pseo commit -m ' *)",
+      "Bash(git -C /Users/amitshukla/pseo diff .claude/settings.local.json)",
+      "Bash(git -C /Users/amitshukla/pseo add .claude/settings.local.json)",
+      "Bash(pnpm --version)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(mkdir -p \"/Users/amitshukla/pseo/src/app/[location]/invoicing-software-for/[profession]\")"
+    ]
+  }
+}

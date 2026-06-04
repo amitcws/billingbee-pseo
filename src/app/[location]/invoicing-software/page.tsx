@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/data/locations";
-import { locationsExtended } from "@/data/locations-extended";
+import { allLocations as locationsExtended } from "@/data/locations-all";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";

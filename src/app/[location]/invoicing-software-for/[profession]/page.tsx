@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { locationsExtended, topLocations } from "@/data/locations-extended";
+import { allLocations as locationsExtended, topLocations } from "@/data/locations-all";
 import { professions, topProfessions } from "@/data/professions";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";

@@ -4,7 +4,7 @@ import { useCases } from "@/data/usecases";
 import { invoiceTemplates } from "@/data/templates";
 import { features } from "@/data/features";
 import { locations } from "@/data/locations";
-import { locationsExtended } from "@/data/locations-extended";
+import { allLocations as locationsExtended } from "@/data/locations-all";
 import { professions } from "@/data/professions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
