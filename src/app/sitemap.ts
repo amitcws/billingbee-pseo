@@ -11,8 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.billingbee.co";
   const now = new Date();
 
-  // Profession × Location combo pages (~20,000 pages)
-  // Sitemap includes all combinations for Google discoverability
+  // ── Combination clusters ───────────────────────────────────────────────
+
+  // 1. Profession × Location  (~14,000 pages)
   const comboProfLoc = locationsExtended.flatMap((loc) =>
     professions.map((prof) => ({
       url: `${base}/${loc.slug}/invoicing-software-for/${prof.slug}`,
@@ -22,11 +23,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  // 2. Template × Location  (~1,680 pages with current templates)
+  const comboTmplLoc = locationsExtended.flatMap((loc) =>
+    invoiceTemplates.map((tmpl) => ({
+      url: `${base}/invoice-templates/${tmpl.slug}/${loc.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  // 3. Template × Profession  (~1,200 pages with current templates)
+  const comboTmplProf = professions.flatMap((prof) =>
+    invoiceTemplates.map((tmpl) => ({
+      url: `${base}/invoice-templates/${tmpl.slug}/for/${prof.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  // 4. Feature × Profession  (~1,000 pages with current features)
+  const comboFeatProf = professions.flatMap((prof) =>
+    features.map((feat) => ({
+      url: `${base}/features/${feat.slug}/for/${prof.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  // 5. Feature × Location  (~1,400 pages with current features)
+  const comboFeatLoc = locationsExtended.flatMap((loc) =>
+    features.map((feat) => ({
+      url: `${base}/features/${feat.slug}/${loc.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
   return [
-    // Hub
+    // ── Hub ──────────────────────────────────────────────────────────────
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
 
-    // Single-dimension pages (high priority)
+    // ── Single-dimension (high priority) ─────────────────────────────────
     ...invoiceTemplates.map((t) => ({
       url: `${base}/invoice-templates/${t.slug}`,
       lastModified: now,
@@ -67,7 +108,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.65,
       })),
 
-    // Combination pages (bulk — lower individual priority, high aggregate value)
+    // ── Combination pages ─────────────────────────────────────────────────
     ...comboProfLoc,
+    ...comboTmplLoc,
+    ...comboTmplProf,
+    ...comboFeatProf,
+    ...comboFeatLoc,
   ];
 }

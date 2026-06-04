@@ -2,11 +2,17 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/data/locations";
+import { locationsExtended } from "@/data/locations-extended";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 
+// Allow ISR for all 140+ extended locations
+export const revalidate = 86400;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
+  // Pre-build detailed locations; extended locations generate on first request
   return locations.map((l) => ({ location: l.slug }));
 }
 
@@ -16,7 +22,8 @@ export async function generateMetadata({
   params: Promise<{ location: string }>;
 }): Promise<Metadata> {
   const { location } = await params;
-  const loc = locations.find((l) => l.slug === location);
+  const loc = locations.find((l) => l.slug === location)
+    ?? locationsExtended.find((l) => l.slug === location);
   if (!loc) return {};
   return {
     title: `Best Invoicing Software for ${loc.name} Businesses | BillingBee`,
@@ -34,10 +41,15 @@ export default async function LocationPage({
   params: Promise<{ location: string }>;
 }) {
   const { location } = await params;
-  const loc = locations.find((l) => l.slug === location);
+  // Try full-detail locations first, fall back to extended (lighter) locations
+  const loc = locations.find((l) => l.slug === location)
+    ?? locationsExtended.find((l) => l.slug === location);
   if (!loc) notFound();
 
-  const others = locations.filter((l) => l.slug !== loc.slug).slice(0, 6);
+  // Type guard: check if this is a full Location (has detailed fields)
+  const isFullLocation = "localCompliance" in loc;
+
+  const others = locationsExtended.filter((l) => l.slug !== loc.slug).slice(0, 6);
 
   return (
     <>
@@ -92,7 +104,7 @@ export default async function LocationPage({
           ))}
         </section>
 
-        {/* Local compliance */}
+        {/* Local compliance — full detail for detailed locations, generic for extended */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-2" style={{ color: "#0F172A" }}>
             {loc.taxName} & local compliance
@@ -101,7 +113,14 @@ export default async function LocationPage({
             BillingBee handles all the local requirements so your invoices are always compliant in {loc.name}.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
-            {loc.localCompliance.map((item) => (
+            {(isFullLocation && "localCompliance" in loc
+              ? (loc as { localCompliance: string[] }).localCompliance
+              : [
+                  `${loc.taxName} number on invoices`,
+                  `${loc.taxName} at ${loc.taxRate} calculated automatically`,
+                  `${loc.country} invoice format compliance`,
+                ]
+            ).map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-xl p-4" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.18)" }}>
                 <span className="font-bold text-lg mt-0.5" style={{ color: "#10B981" }}>✓</span>
                 <p className="text-sm font-medium" style={{ color: "#334155" }}>{item}</p>
@@ -116,7 +135,10 @@ export default async function LocationPage({
             Accepted payment methods in {loc.name}
           </h2>
           <div className="flex flex-wrap gap-3">
-            {loc.paymentMethods.map((method) => (
+            {(isFullLocation && "paymentMethods" in loc
+              ? (loc as { paymentMethods: string[] }).paymentMethods
+              : ["Credit / debit card", "Bank transfer", "PayPal", "Stripe"]
+            ).map((method) => (
               <div
                 key={method}
                 className="flex items-center gap-2 bg-white rounded-xl px-4 py-2"
@@ -140,12 +162,12 @@ export default async function LocationPage({
               `${loc.taxName} calculation at ${loc.taxRate}`,
               `${loc.taxName} number on invoices`,
               "Multi-currency support for international clients",
-              `${loc.language} invoice templates`,
               "Automatic payment reminders",
               "Online payment collection",
               "Client payment portal",
               "Recurring invoices",
               "PDF download for record-keeping",
+              "Mobile invoicing from anywhere",
             ].map((feature) => (
               <div key={feature} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}>
                 <span style={{ color: "#10B981" }}>✓</span>
