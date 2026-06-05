@@ -5,6 +5,8 @@ import { competitors } from "@/data/competitors";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import { softwareAppSchema, breadcrumbSchema, BASE_URL } from "@/lib/schema";
 
 export async function generateStaticParams() {
   return competitors.map((c) => ({ slug: c.slug }));
@@ -41,6 +43,14 @@ export default async function AlternativePage({
 
   return (
     <>
+      <JsonLd data={[
+        softwareAppSchema,
+        breadcrumbSchema([
+          { name: "Home", url: BASE_URL },
+          { name: "Alternatives", url: `${BASE_URL}/alternatives/freshbooks` },
+          { name: `BillingBee vs ${competitor.name}`, url: `${BASE_URL}/alternatives/${competitor.slug}` },
+        ]),
+      ]} />
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}

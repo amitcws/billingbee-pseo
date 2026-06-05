@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <JsonLd data={organizationSchema} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -5,6 +5,8 @@ import { features } from "@/data/features";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import { softwareAppSchema, breadcrumbSchema, BASE_URL } from "@/lib/schema";
 
 export async function generateStaticParams() {
   return features.map((f) => ({ feature: f.slug }));
@@ -63,6 +65,14 @@ export default async function FeaturePage({
 
   return (
     <>
+      <JsonLd data={[
+        softwareAppSchema,
+        breadcrumbSchema([
+          { name: "Home", url: BASE_URL },
+          { name: "Features", url: `${BASE_URL}/features/recurring-invoices` },
+          { name: feat.name, url: `${BASE_URL}/features/${feat.slug}` },
+        ]),
+      ]} />
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}

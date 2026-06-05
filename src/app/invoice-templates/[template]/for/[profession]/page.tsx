@@ -6,6 +6,8 @@ import { professions, topProfessions } from "@/data/professions";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import { softwareAppSchema, breadcrumbSchema, BASE_URL } from "@/lib/schema";
 
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -59,6 +61,14 @@ export default async function TemplateProfessionPage({
 
   return (
     <>
+      <JsonLd data={[
+        softwareAppSchema,
+        breadcrumbSchema([
+          { name: "Home", url: BASE_URL },
+          { name: tmpl.name, url: `${BASE_URL}/invoice-templates/${tmpl.slug}` },
+          { name: `For ${prof.namePlural}`, url: `${BASE_URL}/invoice-templates/${tmpl.slug}/for/${prof.slug}` },
+        ]),
+      ]} />
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}

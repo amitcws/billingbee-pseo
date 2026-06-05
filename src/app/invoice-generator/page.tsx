@@ -5,6 +5,8 @@ import { invoiceTemplates } from "@/data/templates";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import { webAppSchema, breadcrumbSchema, BASE_URL } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Free Online Invoice Generator — Create & Send Invoices | BillingBee",
@@ -50,6 +52,13 @@ export default function InvoiceGeneratorPage() {
 
   return (
     <>
+      <JsonLd data={[
+        webAppSchema,
+        breadcrumbSchema([
+          { name: "Home", url: BASE_URL },
+          { name: "Invoice Generator", url: `${BASE_URL}/invoice-generator` },
+        ]),
+      ]} />
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}

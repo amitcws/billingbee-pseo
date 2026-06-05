@@ -6,6 +6,8 @@ import { allLocations as locationsExtended } from "@/data/locations-all";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import { softwareAppSchema, breadcrumbSchema, BASE_URL } from "@/lib/schema";
 
 // Allow ISR for all 140+ extended locations
 export const revalidate = 86400;
@@ -53,6 +55,14 @@ export default async function LocationPage({
 
   return (
     <>
+      <JsonLd data={[
+        softwareAppSchema,
+        breadcrumbSchema([
+          { name: "Home", url: BASE_URL },
+          { name: "Invoicing by Country", url: `${BASE_URL}/united-states/invoicing-software` },
+          { name: loc.name, url: `${BASE_URL}/${loc.slug}/invoicing-software` },
+        ]),
+      ]} />
       <NavBar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
