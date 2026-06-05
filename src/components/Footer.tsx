@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="py-16 mt-20" style={{ backgroundColor: "#0F172A", color: "#94A3B8" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Templates</h3>
             <ul className="space-y-2 text-sm">
@@ -27,6 +27,15 @@ export default function Footer() {
             </ul>
           </div>
           <div>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">AI Invoicing</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/features/ai-invoicing" className="hover:text-white transition-colors">AI Billing Software</Link></li>
+              <li><Link href="/invoice-generator" className="hover:text-white transition-colors">Invoice Generator</Link></li>
+              <li><Link href="/features/invoice-automation" className="hover:text-white transition-colors">Invoice Automation</Link></li>
+              <li><Link href="/features/expense-tracking" className="hover:text-white transition-colors">Expense Tracking</Link></li>
+            </ul>
+          </div>
+          <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Alternatives</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/alternatives/freshbooks" className="hover:text-white transition-colors">vs FreshBooks</Link></li>
@@ -44,6 +53,16 @@ export default function Footer() {
               <li><Link href="/for/consultants" className="hover:text-white transition-colors">Consultants</Link></li>
               <li><Link href="/for/photographers" className="hover:text-white transition-colors">Photographers</Link></li>
               <li><Link href="/for/lawyers" className="hover:text-white transition-colors">Lawyers</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">By Country</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/united-states/invoicing-software" className="hover:text-white transition-colors">United States</Link></li>
+              <li><Link href="/united-kingdom/invoicing-software" className="hover:text-white transition-colors">United Kingdom</Link></li>
+              <li><Link href="/australia/invoicing-software" className="hover:text-white transition-colors">Australia</Link></li>
+              <li><Link href="/canada/invoicing-software" className="hover:text-white transition-colors">Canada</Link></li>
+              <li><Link href="/germany/invoicing-software" className="hover:text-white transition-colors">Germany</Link></li>
             </ul>
           </div>
         </div>
