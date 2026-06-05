@@ -597,6 +597,32 @@ export const features: Feature[] = [
     relatedFeatures: ["client-management", "invoice-analytics", "invoice-automation"],
   },
   {
+    slug: "ai-invoicing",
+    name: "AI Billing Software",
+    headline: "Create Invoices Instantly with Natural Language — Powered by AI",
+    description:
+      "BillingBee's AI billing software lets you create a complete, professional invoice by describing it in plain English. Just type what you did, who it was for, and how much — BillingBee does the rest.",
+    benefits: [
+      "Generate invoices in seconds with a natural language prompt",
+      "AI fills in line items, amounts, and payment terms automatically",
+      "No templates to fill in — just describe the job",
+      "More AI features in active development",
+    ],
+    useCases: [
+      "Freelancers who want to invoice without the admin",
+      "Agencies billing for multiple services at once",
+      "Consultants logging work across multiple clients",
+      "Anyone who finds traditional invoice forms tedious",
+    ],
+    howItWorks: [
+      "Type a plain-English description of the work — e.g. \"Invoice Acme Corp £2,400 for 3 days of brand consulting, net 30\"",
+      "BillingBee's AI parses your prompt and generates a complete invoice",
+      "Review, edit if needed, and send — in under a minute",
+      "More AI-powered features are on the way",
+    ],
+    relatedFeatures: ["invoice-automation", "recurring-invoices", "invoice-templates"],
+  },
+  {
     slug: "automatic-reconciliation",
     name: "Automatic Payment Reconciliation",
     headline: "Invoices Marked Paid Automatically When Payment Arrives",

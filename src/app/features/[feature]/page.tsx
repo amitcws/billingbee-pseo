@@ -25,6 +25,7 @@ export async function generateMetadata({
     "time-tracking": "Time Tracking & Invoicing Software for Freelancers | BillingBee",
     "invoice-templates": "Free Invoice Templates — Professional & Customisable | BillingBee",
     "online-payment": "Free Online Invoice Payments — Accept Cards & Bank Transfers | BillingBee",
+    "ai-invoicing": "AI Billing Software — Create Invoices with Natural Language | BillingBee",
   };
 
   const seoDescriptions: Record<string, string> = {
@@ -33,6 +34,7 @@ export async function generateMetadata({
     "time-tracking": `Time tracking and invoicing software built for freelancers. Track billable hours per project and convert them to invoices in one click. ${feat.description}`,
     "invoice-templates": `Free invoice templates for every business type. Professional, customisable, and ready to send in minutes. ${feat.description}`,
     "online-payment": `Free online invoice payments. Add a Pay Now button to every invoice and get paid by card, bank transfer, or PayPal. ${feat.description}`,
+    "ai-invoicing": `AI billing software that generates invoices from plain English. Describe the job, BillingBee creates the invoice instantly. The smartest way to bill clients — free to try.`,
   };
 
   return {
