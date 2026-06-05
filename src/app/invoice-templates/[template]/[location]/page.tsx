@@ -205,7 +205,7 @@ export default async function TemplateLocationPage({
             </div>
 
             {/* What's included */}
-            <h3 className="font-bold mb-3" style={{ color: "#0F172A" }}>Includes required {loc.name} fields</h3>
+            <h3 className="font-bold mb-3" style={{ color: "#0F172A" }}>Your {loc.name} invoice will include</h3>
             <div className="space-y-2">
               {[
                 `${loc.taxName} number field`,

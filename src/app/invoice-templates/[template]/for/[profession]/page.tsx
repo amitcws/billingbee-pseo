@@ -206,7 +206,7 @@ export default async function TemplateProfessionPage({
 
         {/* What's included */}
         <section className="mb-14">
-          <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>What&apos;s included</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: "#0F172A" }}>What your invoice will include</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {tmpl.fields.map((field) => (
               <div key={field} className="flex items-center gap-3 rounded-xl px-4 py-3"

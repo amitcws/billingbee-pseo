@@ -153,7 +153,7 @@ export default async function TemplatePage({
 
         {/* What's included */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>What&apos;s included in this template</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>What your invoice will include</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {tmpl.fields.map((field) => (
               <div key={field} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}>
