@@ -30,8 +30,8 @@ export async function generateMetadata({
   const prof = professions.find((p) => p.slug === profession);
   if (!tmpl || !prof) return {};
   return {
-    title: `Free ${tmpl.name} for ${prof.namePlural} — Download PDF, Word & Google Docs | BillingBee`,
-    description: `Download a free ${tmpl.name.toLowerCase()} designed for ${prof.namePlural}. Includes the right fields for ${prof.billingStyle} billing. PDF, Word, and Google Docs.`,
+    title: `Free ${tmpl.name} for ${prof.namePlural} — Use Online as PDF, Word & More | BillingBee`,
+    description: `Use this free ${tmpl.name.toLowerCase()} for ${prof.namePlural} in BillingBee. Includes the right fields for ${prof.billingStyle} billing. Send as PDF, Word, or Google Docs — no download needed.`,
     openGraph: {
       title: `Free ${tmpl.name} for ${prof.namePlural} | BillingBee`,
       description: `Professional invoice template built for how ${prof.namePlural.toLowerCase()} bill their clients.`,
@@ -88,7 +88,7 @@ export default async function TemplateProfessionPage({
           </h1>
           <p className="text-xl max-w-2xl mb-8" style={{ color: "#64748B" }}>
             A professional invoice template designed for {prof.namePlural.toLowerCase()} who bill {prof.billingStyle === "hourly" ? "by the hour" : prof.billingStyle === "project" ? "per project" : prof.billingStyle === "retainer" ? "on retainer" : "per session"}.
-            Download free in PDF, Word, or Google Docs, or use BillingBee online.
+            Use free in BillingBee — send as PDF, Word, or Google Docs.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -140,11 +140,11 @@ export default async function TemplateProfessionPage({
             </p>
           </div>
 
-          {/* Downloads */}
+          {/* Formats */}
           <div>
-            <h2 className="text-2xl font-bold mb-2" style={{ color: "#0F172A" }}>Download free</h2>
+            <h2 className="text-2xl font-bold mb-2" style={{ color: "#0F172A" }}>Use free in BillingBee</h2>
             <p className="text-sm mb-6" style={{ color: "#64748B" }}>
-              Pre-configured with the right line items for how {prof.namePlural.toLowerCase()} charge clients. {tmpl.downloadCount} downloads.
+              Pre-configured with the right line items for how {prof.namePlural.toLowerCase()} charge clients. No credit card needed.
             </p>
             <div className="space-y-3 mb-8">
               {tmpl.formats.map((fmt) => (
@@ -154,11 +154,11 @@ export default async function TemplateProfessionPage({
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{fmt === "PDF" ? "📄" : fmt.includes("Word") ? "📝" : fmt.includes("Google") ? "📊" : "📈"}</span>
                     <div>
-                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Download {fmt}</p>
-                      <p className="text-xs" style={{ color: "#64748B" }}>For {prof.namePlural} · Free</p>
+                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Use as {fmt} in BillingBee</p>
+                      <p className="text-xs" style={{ color: "#64748B" }}>For {prof.namePlural} · Free · No credit card needed</p>
                     </div>
                   </div>
-                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Free →</span>
+                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Use free →</span>
                 </Link>
               ))}
             </div>

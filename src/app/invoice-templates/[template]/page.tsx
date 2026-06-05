@@ -19,8 +19,8 @@ export async function generateMetadata({
   const tmpl = invoiceTemplates.find((t) => t.slug === template);
   if (!tmpl) return {};
   return {
-    title: `Free ${tmpl.name} — Download PDF, Word & Google Docs | BillingBee`,
-    description: `Download a free ${tmpl.name.toLowerCase()}. Available in PDF, Word, and Google Docs. ${tmpl.description}`,
+    title: `Free ${tmpl.name} — Use Online as PDF, Word & More | BillingBee`,
+    description: `Use this free ${tmpl.name.toLowerCase()} online in BillingBee. Send as PDF, Word, or Google Docs — no download needed. ${tmpl.description}`,
     openGraph: {
       title: `Free ${tmpl.name} | BillingBee`,
       description: tmpl.description,
@@ -113,7 +113,7 @@ export default async function TemplatePage({
             </h1>
             <p className="text-lg mb-6" style={{ color: "#64748B" }}>{tmpl.description}</p>
 
-            {/* Download buttons */}
+            {/* Format buttons */}
             <div className="space-y-3 mb-8">
               {tmpl.formats.map((fmt) => (
                 <Link
@@ -127,11 +127,11 @@ export default async function TemplatePage({
                       {fmt === "PDF" ? "📄" : fmt.includes("Word") ? "📝" : fmt.includes("Google") ? "📊" : "📈"}
                     </span>
                     <div>
-                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Download {fmt}</p>
-                      <p className="text-xs" style={{ color: "#64748B" }}>Free template · No sign-up required</p>
+                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Use as {fmt} in BillingBee</p>
+                      <p className="text-xs" style={{ color: "#64748B" }}>Free · No credit card needed</p>
                     </div>
                   </div>
-                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Download →</span>
+                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Use free →</span>
                 </Link>
               ))}
             </div>

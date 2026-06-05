@@ -32,10 +32,10 @@ export async function generateMetadata({
   if (!tmpl || !loc) return {};
   return {
     title: `Free ${tmpl.name} for ${loc.name} — PDF, Word & Google Docs | BillingBee`,
-    description: `Download a free ${tmpl.name.toLowerCase()} for ${loc.name} businesses. ${loc.taxName} compliant (${loc.taxRate}), ${loc.currencySymbol} ${loc.currency} ready. PDF, Word and Google Docs formats.`,
+    description: `Use this free ${tmpl.name.toLowerCase()} for ${loc.name} businesses in BillingBee. ${loc.taxName} compliant (${loc.taxRate}), ${loc.currencySymbol} ${loc.currency} ready. Send as PDF, Word, or Google Docs — no download needed.`,
     openGraph: {
       title: `Free ${tmpl.name} for ${loc.name} | BillingBee`,
-      description: `${loc.taxName}-compliant invoice template for ${loc.name}. Free PDF, Word & Google Docs download.`,
+      description: `${loc.taxName}-compliant invoice template for ${loc.name}. Use free online in BillingBee — send as PDF, Word & more.`,
     },
   };
 }
@@ -93,7 +93,7 @@ export default async function TemplateLocationPage({
           <p className="text-xl max-w-2xl mb-8" style={{ color: "#64748B" }}>
             A free, {loc.taxName}-compliant {tmpl.name.toLowerCase()} for businesses in {loc.name}.
             Pre-formatted for {loc.currencySymbol} {loc.currency} at {loc.taxRate} {loc.taxName}.
-            Download in PDF, Word, or Google Docs — or use online instantly.
+            Use free in BillingBee — send as PDF, Word, or Google Docs.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -173,10 +173,10 @@ export default async function TemplateLocationPage({
             </p>
           </div>
 
-          {/* Download options */}
+          {/* Format options */}
           <div>
             <h2 className="text-2xl font-bold mb-4" style={{ color: "#0F172A" }}>
-              Download your free {loc.name} invoice template
+              Use this free {loc.name} invoice template in BillingBee
             </h2>
             <p className="text-sm mb-6" style={{ color: "#64748B" }}>
               Pre-configured for {loc.taxName} at {loc.taxRate} and {loc.currencySymbol} {loc.currency}.
@@ -195,11 +195,11 @@ export default async function TemplateLocationPage({
                       {fmt === "PDF" ? "📄" : fmt.includes("Word") ? "📝" : fmt.includes("Google") ? "📊" : "📈"}
                     </span>
                     <div>
-                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Download {fmt}</p>
+                      <p className="font-semibold text-sm" style={{ color: "#0F172A" }}>Use as {fmt} in BillingBee</p>
                       <p className="text-xs" style={{ color: "#64748B" }}>{loc.taxName} ready · {loc.currency} · {loc.name}</p>
                     </div>
                   </div>
-                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Free →</span>
+                  <span className="text-sm font-medium group-hover:underline" style={{ color: "#10B981" }}>Use free →</span>
                 </Link>
               ))}
             </div>
