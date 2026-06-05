@@ -66,7 +66,22 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+        {/* NVIDIA Inception */}
+        <div className="flex items-center gap-4 mb-8 pb-8" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+          <Image
+            src="https://www.billingbee.co/assets/images/nvidia.png"
+            alt="NVIDIA Inception Program Member"
+            width={120}
+            height={40}
+            className="h-10 w-auto"
+            unoptimized
+          />
+          <p className="text-sm" style={{ color: "#64748B" }}>
+            BillingBee is a proud member of the NVIDIA Inception Program.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <Image
             src="https://billingbee.co/uploads/super_admin_settings/558/billinbee_logo.png"
             alt="BillingBee"
