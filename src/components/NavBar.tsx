@@ -20,6 +20,7 @@ export default function NavBar() {
           <Link href="/features/recurring-invoices" className="hover:text-slate-900 transition-colors">Features</Link>
           <Link href="/alternatives/freshbooks" className="hover:text-slate-900 transition-colors">Alternatives</Link>
           <Link href="/for/freelance-designers" className="hover:text-slate-900 transition-colors">By profession</Link>
+          <Link href="https://www.billingbee.co/plans-price" className="hover:text-slate-900 transition-colors">Pricing</Link>
         </nav>
         <div className="flex items-center gap-3">
           <Link
