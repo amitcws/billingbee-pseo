@@ -26,11 +26,11 @@ export async function generateMetadata({
     ?? locationsExtended.find((l) => l.slug === location);
   if (!loc) return {};
   return {
-    title: `Best Invoicing Software for ${loc.name} Businesses | BillingBee`,
-    description: `Invoicing software built for ${loc.name}. Supports ${loc.taxName} (${loc.taxRate}), ${loc.currency}, and local payment methods. Start free today.`,
+    title: `Free Billing Software for ${loc.name} — Online Invoicing | BillingBee`,
+    description: `Free billing software for ${loc.name} businesses. Send invoices, automate payment reminders, and get paid online. ${loc.taxName} (${loc.taxRate}) compliant, ${loc.currency} ready. Start free today.`,
     openGraph: {
-      title: `Invoicing Software for ${loc.name} | BillingBee`,
-      description: `Professional invoicing for ${loc.name} businesses. ${loc.taxName} compliant, ${loc.currency} support, and more.`,
+      title: `Free Billing Software for ${loc.name} | BillingBee`,
+      description: `Free online billing software for ${loc.name}. ${loc.taxName} compliant, ${loc.currency} support, and local payment methods.`,
     },
   };
 }

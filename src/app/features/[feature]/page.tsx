@@ -18,11 +18,28 @@ export async function generateMetadata({
   const { feature } = await params;
   const feat = features.find((f) => f.slug === feature);
   if (!feat) return {};
+
+  const seoTitles: Record<string, string> = {
+    "recurring-invoices": "Recurring Billing Software — Automate Your Invoices | BillingBee",
+    "payment-reminders": "Invoice Reminder Software — Automated Payment Reminders | BillingBee",
+    "time-tracking": "Time Tracking & Invoicing Software for Freelancers | BillingBee",
+    "invoice-templates": "Free Invoice Templates — Professional & Customisable | BillingBee",
+    "online-payment": "Free Online Invoice Payments — Accept Cards & Bank Transfers | BillingBee",
+  };
+
+  const seoDescriptions: Record<string, string> = {
+    "recurring-invoices": `Recurring billing software that automates your invoices. Set a schedule once and BillingBee sends invoices automatically — weekly, monthly, or annually. ${feat.description}`,
+    "payment-reminders": `Invoice reminder software that chases late payments for you. BillingBee automatically sends payment reminders before and after the due date. ${feat.description}`,
+    "time-tracking": `Time tracking and invoicing software built for freelancers. Track billable hours per project and convert them to invoices in one click. ${feat.description}`,
+    "invoice-templates": `Free invoice templates for every business type. Professional, customisable, and ready to send in minutes. ${feat.description}`,
+    "online-payment": `Free online invoice payments. Add a Pay Now button to every invoice and get paid by card, bank transfer, or PayPal. ${feat.description}`,
+  };
+
   return {
-    title: `${feat.name} | BillingBee`,
-    description: feat.description,
+    title: seoTitles[feature] ?? `${feat.name} | BillingBee`,
+    description: seoDescriptions[feature] ?? feat.description,
     openGraph: {
-      title: feat.headline,
+      title: seoTitles[feature] ?? feat.headline,
       description: feat.description,
     },
   };

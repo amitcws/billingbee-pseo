@@ -30,8 +30,8 @@ export async function generateMetadata({
   const prof = professions.find((p) => p.slug === profession);
   if (!tmpl || !prof) return {};
   return {
-    title: `Free ${tmpl.name} for ${prof.namePlural} — Use Online as PDF, Word & More | BillingBee`,
-    description: `Use this free ${tmpl.name.toLowerCase()} for ${prof.namePlural} in BillingBee. Includes the right fields for ${prof.billingStyle} billing. Send as PDF, Word, or Google Docs — no download needed.`,
+    title: `Free ${tmpl.name} for ${prof.namePlural} — Online Invoice Generator | BillingBee`,
+    description: `Free online invoice generator for ${prof.namePlural.toLowerCase()}. Use this ${tmpl.name.toLowerCase()} in BillingBee — built for ${prof.billingStyle} billing, send as PDF, Word, or Google Docs.`,
     openGraph: {
       title: `Free ${tmpl.name} for ${prof.namePlural} | BillingBee`,
       description: `Professional invoice template built for how ${prof.namePlural.toLowerCase()} bill their clients.`,

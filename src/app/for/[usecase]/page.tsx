@@ -19,10 +19,10 @@ export async function generateMetadata({
   const uc = useCases.find((u) => u.slug === usecase);
   if (!uc) return {};
   return {
-    title: `${uc.headline} | BillingBee`,
-    description: `${uc.description} Get paid faster with automated invoices, payment reminders, and online payments.`,
+    title: `Free Invoicing Software for ${uc.profession} | BillingBee`,
+    description: `Free invoicing software for ${uc.profession.toLowerCase()}. Send invoices, automate payment reminders, and get paid online — no credit card needed. ${uc.description}`,
     openGraph: {
-      title: uc.headline,
+      title: `Free Invoicing Software for ${uc.profession} | BillingBee`,
       description: uc.description,
     },
   };

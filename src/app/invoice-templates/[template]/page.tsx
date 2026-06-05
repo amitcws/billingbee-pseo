@@ -19,8 +19,8 @@ export async function generateMetadata({
   const tmpl = invoiceTemplates.find((t) => t.slug === template);
   if (!tmpl) return {};
   return {
-    title: `Free ${tmpl.name} — Use Online as PDF, Word & More | BillingBee`,
-    description: `Use this free ${tmpl.name.toLowerCase()} online in BillingBee. Send as PDF, Word, or Google Docs — no download needed. ${tmpl.description}`,
+    title: `Free ${tmpl.name} — Online Invoice Generator | BillingBee`,
+    description: `Free online invoice generator. Use this ${tmpl.name.toLowerCase()} in BillingBee, send as PDF, Word, or Google Docs — no download needed. ${tmpl.description}`,
     openGraph: {
       title: `Free ${tmpl.name} | BillingBee`,
       description: tmpl.description,

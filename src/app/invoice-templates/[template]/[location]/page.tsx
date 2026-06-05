@@ -31,8 +31,8 @@ export async function generateMetadata({
   const loc = locationsExtended.find((l) => l.slug === location);
   if (!tmpl || !loc) return {};
   return {
-    title: `Free ${tmpl.name} for ${loc.name} — PDF, Word & Google Docs | BillingBee`,
-    description: `Use this free ${tmpl.name.toLowerCase()} for ${loc.name} businesses in BillingBee. ${loc.taxName} compliant (${loc.taxRate}), ${loc.currencySymbol} ${loc.currency} ready. Send as PDF, Word, or Google Docs — no download needed.`,
+    title: `Free ${tmpl.name} for ${loc.name} — Online Invoice Generator | BillingBee`,
+    description: `Free online invoice generator for ${loc.name} businesses. Use this ${tmpl.name.toLowerCase()} in BillingBee — ${loc.taxName} compliant (${loc.taxRate}), ${loc.currencySymbol} ${loc.currency} ready. No download needed.`,
     openGraph: {
       title: `Free ${tmpl.name} for ${loc.name} | BillingBee`,
       description: `${loc.taxName}-compliant invoice template for ${loc.name}. Use free online in BillingBee — send as PDF, Word & more.`,
