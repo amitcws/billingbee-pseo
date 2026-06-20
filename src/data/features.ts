@@ -637,4 +637,160 @@ export const features: Feature[] = [
     ],
     relatedFeatures: ["online-payment", "stripe-integration", "paypal-integration"],
   },
+  {
+    slug: "gst-invoicing",
+    name: "GST Invoice Software",
+    headline: "Create GST-Compliant Invoices in Seconds — CGST, SGST & IGST Ready",
+    description:
+      "BillingBee's GST invoice software automatically calculates CGST, SGST, and IGST based on your transaction type. Enter your GSTIN once and every invoice is fully GST-compliant — formatted for Indian clients and ready for filing.",
+    benefits: [
+      "Auto-calculates CGST, SGST, or IGST based on intra-state or inter-state billing",
+      "GSTIN validation ensures you never send an invoice with an incorrect tax number",
+      "GST-compliant invoice format accepted by Indian CA firms and auditors",
+      "Keeps all tax data in one place to simplify quarterly GST return filing",
+    ],
+    useCases: [
+      "Indian freelancers billing GST-registered business clients",
+      "Small businesses filing quarterly GST returns",
+      "Agencies issuing inter-state invoices where IGST applies",
+      "Service providers who need to display HSN or SAC codes on invoices",
+    ],
+    howItWorks: [
+      "Add your GSTIN to your BillingBee profile — it is validated automatically",
+      "Set the GST rate for each product or service: 0%, 5%, 12%, 18%, or 28%",
+      "BillingBee detects intra-state or inter-state billing and applies CGST/SGST or IGST",
+      "Download a fully formatted GST invoice PDF ready to send to your client",
+    ],
+    relatedFeatures: ["tax-calculation", "invoice-templates", "invoice-pdf-download"],
+  },
+  {
+    slug: "razorpay-integration",
+    name: "Razorpay Payment Integration",
+    headline: "Accept Payments via Razorpay — UPI, Cards, Net Banking & Wallets",
+    description:
+      "BillingBee's Razorpay integration lets Indian businesses accept payments directly on invoices via UPI, credit and debit cards, net banking, and wallets. Payments settle to your Razorpay account and the invoice is marked paid automatically.",
+    benefits: [
+      "Clients can pay via UPI, cards, net banking, or wallets in one click",
+      "Instant payment settlement to your Razorpay account",
+      "Invoice status updates to paid automatically when payment is received",
+      "No separate payment page — clients pay directly on the invoice",
+    ],
+    useCases: [
+      "Indian freelancers collecting payments from domestic clients",
+      "Small businesses accepting UPI and card payments without a POS",
+      "Agencies billing clients who prefer net banking over cards",
+      "Subscription-based businesses collecting recurring payments via Razorpay",
+    ],
+    howItWorks: [
+      "Connect your Razorpay account in BillingBee settings — takes under 2 minutes",
+      "Send your invoice as usual — a Razorpay payment button appears on the invoice",
+      "Clients choose their preferred payment method: UPI, card, net banking, or wallet",
+      "BillingBee marks the invoice as paid automatically once the payment settles",
+    ],
+    relatedFeatures: ["online-payment", "payment-links", "payment-reminders"],
+  },
+  {
+    slug: "upi-payments",
+    name: "UPI Payment Collection",
+    headline: "Collect UPI Payments on Your Invoices — Instant, Zero MDR",
+    description:
+      "BillingBee lets you accept UPI payments directly on invoices sent to Indian clients. Clients scan a QR code or tap a UPI link — payment arrives in your account instantly with zero MDR charges.",
+    benefits: [
+      "Zero MDR on UPI transactions — you keep 100% of what clients pay",
+      "Instant settlement with no waiting days for funds to clear",
+      "Works with all major UPI apps: GPay, PhonePe, Paytm, BHIM, and more",
+      "Invoice marked paid automatically as soon as UPI payment is confirmed",
+    ],
+    useCases: [
+      "Freelancers invoicing Indian clients who prefer UPI over cards",
+      "Small businesses replacing cash collections with UPI on invoices",
+      "Consultants collecting instant payment at the end of a project",
+      "Service providers wanting zero-fee payment collection from domestic clients",
+    ],
+    howItWorks: [
+      "Enable UPI payments in your BillingBee payment settings",
+      "Add your UPI ID or link your Razorpay account for QR-based collection",
+      "Send the invoice — a UPI payment link and QR code appear for the client",
+      "Client pays via any UPI app and the invoice is marked paid instantly",
+    ],
+    relatedFeatures: ["razorpay-integration", "online-payment", "payment-links"],
+  },
+  {
+    slug: "invoice-approval-workflow",
+    name: "Invoice Approval Workflow",
+    headline: "Require Invoice Sign-Off Before Sending — Never Send a Wrong Invoice Again",
+    description:
+      "BillingBee's invoice approval workflow lets you set up multi-step approval before any invoice goes out. Ideal for agencies and teams where invoices need a manager or account lead to review before the client sees them.",
+    benefits: [
+      "Prevent billing errors before invoices reach clients",
+      "Keep finance teams in the loop with clear approval chains",
+      "Automatic notifications when an invoice is waiting for review",
+      "Full audit trail showing who approved what and when",
+    ],
+    useCases: [
+      "Agencies where account managers must approve project invoices",
+      "Teams where a finance lead needs to sign off before billing clients",
+      "Businesses with team members who can create but not send invoices",
+      "Partnerships where both co-owners must approve invoices above a threshold",
+    ],
+    howItWorks: [
+      "Set up an approval rule — choose approvers and any conditions such as invoices over a set amount",
+      "Team member creates an invoice and submits it for approval",
+      "Approver receives a notification and reviews the invoice in BillingBee",
+      "Once approved, the invoice is sent to the client automatically",
+    ],
+    relatedFeatures: ["team-billing", "batch-invoicing", "invoice-scheduling"],
+  },
+  {
+    slug: "multi-language-invoices",
+    name: "Multi-Language Invoice Software",
+    headline: "Send Invoices in Your Client's Language — Look Local, Bill Global",
+    description:
+      "BillingBee lets you create and send invoices in your client's preferred language. Switch invoice language per client without changing your own account settings — ideal for freelancers and agencies billing across borders.",
+    benefits: [
+      "Bill clients in their native language to reduce confusion and payment delays",
+      "Per-client language setting — no manual toggling between accounts",
+      "Professional localized invoices that match your client's expectations",
+      "Supports major global languages including Spanish, French, German, Arabic, and more",
+    ],
+    useCases: [
+      "Freelancers working with clients across multiple countries and languages",
+      "Agencies billing European clients in French, German, or Spanish",
+      "Consultants in multilingual markets where local-language invoices are expected",
+      "Export businesses that need invoices in both English and a local language",
+    ],
+    howItWorks: [
+      "Set a preferred language on each client profile in BillingBee",
+      "Create your invoice as normal in your own language",
+      "BillingBee renders the invoice in the client's language automatically",
+      "The client receives a PDF invoice in their language — your account stays unchanged",
+    ],
+    relatedFeatures: ["multi-currency", "white-label-invoicing", "invoice-customization"],
+  },
+  {
+    slug: "payment-tracking",
+    name: "Invoice Payment Tracking",
+    headline: "Track Every Invoice in Real Time — Sent, Viewed, Paid, Overdue",
+    description:
+      "BillingBee's invoice payment tracking shows you the live status of every invoice — when it was sent, when the client opened it, when it was paid, and which ones are overdue. No more guessing whether a client has seen your invoice.",
+    benefits: [
+      "Know the moment a client opens your invoice with read receipts",
+      "Spot overdue invoices before they become a cash flow problem",
+      "Single dashboard showing the status of every outstanding invoice",
+      "Automated status updates — no manual chasing or spreadsheet tracking",
+    ],
+    useCases: [
+      "Freelancers managing multiple active invoices across different clients",
+      "Agencies tracking payment status across a high volume of monthly invoices",
+      "Businesses that need to report outstanding accounts receivable to founders or investors",
+      "Consultants who want to know if a client has seen an invoice before following up",
+    ],
+    howItWorks: [
+      "Send an invoice from BillingBee — tracking starts automatically",
+      "BillingBee records when the client opens the invoice link",
+      "The invoice dashboard shows live status: Sent, Viewed, Paid, or Overdue",
+      "Get notified when an invoice is paid or when it passes its due date",
+    ],
+    relatedFeatures: ["overdue-invoice-management", "payment-reminders", "invoice-analytics"],
+  },
 ];
